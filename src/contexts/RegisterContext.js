@@ -8,8 +8,8 @@ export default React.createContext({
     lastname : "",
     screen : 0,
     showNextRegister : false,
-    setContext : () => setContext,
-    setShowNextRegister : () => setShowNextRegister,
-    setShowButtonNextRegister : () => setShowButtonNextRegister,
-    setShowButtonSaveRegister : () => setShowButtonSaveRegister,
+    setContext : () => setContext(),
+    setShowNextRegister : () => setShowNextRegister(),
+    setShowButtonNextRegister : () => setShowButtonNextRegister(),
+    setShowButtonSaveRegister : () => setShowButtonSaveRegister()
 })
