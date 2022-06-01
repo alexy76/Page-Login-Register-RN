@@ -21,7 +21,7 @@ const LoginScreen = ({navigation, route}) => {
                 <View style={styles.viewButtonLogin}>
                     <TouchableOpacity 
                         onPress={() => navigation.replace('Home')} 
-                        tyle={styles.buttonLogin}
+                        style={styles.buttonLogin}
                     >
                         <Text style={styles.textButtonLogin}>SE CONNECTER</Text>
                     </TouchableOpacity>
