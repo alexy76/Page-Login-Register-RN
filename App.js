@@ -10,6 +10,7 @@ import SuccessRegister from "./src/screens/SuccessRegister"
 
 const { Navigator, Screen } = createNativeStackNavigator();
 
+
 const App = () => {
   return (
     <SafeAreaProvider>
