@@ -10,9 +10,7 @@ const LoginScreen = ({navigation}) => {
         <View style={styles.viewGlobal}>
 
             <View style={styles.viewPrimary}>
-
                 <Image source={require('../../assets/images/Login.png')} style={styles.image} />
-
             </View>
 
             <View style={styles.viewSecondary}>
@@ -21,7 +19,6 @@ const LoginScreen = ({navigation}) => {
                 <Input config={passwordLogin} />
 
                 <View style={styles.viewButtonLogin}>
-
                     <TouchableOpacity 
                         onPress={() => navigation.replace('Home')} 
                         tyle={styles.buttonLogin}
@@ -32,14 +29,13 @@ const LoginScreen = ({navigation}) => {
                 
 
                 <View style={styles.viewFooter}>
-
                     <Text>Pas encore inscrit ?</Text>
                     
                     <TouchableOpacity onPress={() => navigation.replace('Register')}>
                         <Text style={styles.textButtonRegister}>Créer un compte</Text>
                     </TouchableOpacity>
-
                 </View>
+                
             </View>
         </View>
   )
@@ -50,7 +46,7 @@ export default LoginScreen
 const styles = StyleSheet.create({
     viewGlobal : {
         flex : 1,
-        marginTop : 30
+        marginBottom : 30
     },
     viewPrimary : {
         flex : 4,

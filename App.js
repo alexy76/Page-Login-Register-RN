@@ -18,10 +18,10 @@ const App = () => {
 
         <Navigator initialRouteName="HomeScreen">
 
-          <Screen name="Home" component={HomeScreen} options={{headerShown : false }}/>
+          <Screen name="Home" component={HomeScreen} options={{headerShown : false }} />
           <Screen name="Login" component={LoginScreen} />
           <Screen name="Register" component={RegisterScreen} />
-          <Screen name="SuccessRegister" component={SuccessRegister} />
+          <Screen name="SuccessRegister" component={SuccessRegister} options={{headerShown : false }} />
 
         </Navigator>
 
