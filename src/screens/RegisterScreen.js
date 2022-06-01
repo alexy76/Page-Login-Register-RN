@@ -5,7 +5,7 @@ import RegisterContext from '../contexts/RegisterContext'
 import Input from '../components/Input'
 
 
-const RegisterScreen = ({navigation}) => {
+const RegisterScreen = ({navigation, route}) => {
 
   console.log("rechargement composant")
   const contextValue = {
@@ -45,16 +45,16 @@ const RegisterScreen = ({navigation}) => {
 
         {!showNextRegister &&
           <>
-            <Input config={email} />
-            <Input config={passwordRegister} />
-            <Input config={confirmPasswordRegister} />
+            <Input config={email} route={route.name} />
+            <Input config={passwordRegister} route={route.name} />
+            <Input config={confirmPasswordRegister} route={route.name} />
           </>
         }
 
         {showNextRegister &&
           <>
-            <Input config={firstname} />
-            <Input config={lastname} />
+            <Input config={firstname} route={route.name} />
+            <Input config={lastname} route={route.name} />
           </>
         }
 

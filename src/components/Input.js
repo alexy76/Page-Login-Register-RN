@@ -5,7 +5,8 @@ import { validityFormScreenOne, validityFormScreenTwo } from '../tools/VerifyReg
 import Icon from 'react-native-vector-icons/FontAwesome'
 
 
-const Input = ({config}) => {
+const Input = ({config, route}) => {
+
 
     const contextValue = useContext(RegisterContext)
 
@@ -27,12 +28,16 @@ const Input = ({config}) => {
 
             regEx.test(text) ? setError(false) : setError(true)
 
-            const copyContext = {...contextValue}
-            copyContext[keyword] = text
-            contextValue.setContext(copyContext)
+            if(route !== 'Login'){
 
-            copyContext.screen === 1 ? validityFormScreenOne(copyContext) ? contextValue.setShowButtonNextRegister(true) : contextValue.setShowButtonNextRegister(false) : null
-            copyContext.screen === 2 ? validityFormScreenTwo(copyContext) ? contextValue.setShowButtonSaveRegister(true) : contextValue.setShowButtonSaveRegister(false) : null
+                const copyContext = {...contextValue}
+                copyContext[keyword] = text
+                contextValue.setContext(copyContext)
+
+                copyContext.screen === 1 ? validityFormScreenOne(copyContext) ? contextValue.setShowButtonNextRegister(true) : contextValue.setShowButtonNextRegister(false) : null
+                copyContext.screen === 2 ? validityFormScreenTwo(copyContext) ? contextValue.setShowButtonSaveRegister(true) : contextValue.setShowButtonSaveRegister(false) : null
+            }
+            
 
         }
     }

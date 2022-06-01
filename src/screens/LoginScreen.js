@@ -4,7 +4,7 @@ import { email, passwordLogin } from '../tools/InputConfig'
 import Input from '../components/Input'
 
 
-const LoginScreen = ({navigation}) => {
+const LoginScreen = ({navigation, route}) => {
 
   return (
         <View style={styles.viewGlobal}>
@@ -15,8 +15,8 @@ const LoginScreen = ({navigation}) => {
 
             <View style={styles.viewSecondary}>
 
-                <Input config={email} />
-                <Input config={passwordLogin} />
+                <Input config={email} route={route.name} />
+                <Input config={passwordLogin} route={route.name}/>
 
                 <View style={styles.viewButtonLogin}>
                     <TouchableOpacity 
