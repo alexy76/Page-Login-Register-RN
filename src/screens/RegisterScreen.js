@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { StyleSheet, View, TouchableOpacity, Text } from 'react-native'
 import { email, passwordRegister, confirmPasswordRegister, firstname, lastname } from '../tools/InputConfig'
-import DatePicker from 'react-native-modern-datepicker'
 import RegisterContext from '../contexts/RegisterContext'
 import Input from '../components/Input'
 
@@ -50,7 +49,6 @@ const RegisterScreen = ({navigation}) => {
             <Input config={email} />
             <Input config={passwordRegister} />
             <Input config={confirmPasswordRegister} />
-            <DatePicker onSelectedChange={date => setSelectedDate(date)} />
           </>
         }
 
