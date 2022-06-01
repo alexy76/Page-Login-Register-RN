@@ -12,33 +12,26 @@ const Input = ({config, route}) => {
 
     const { label, keyword, placeholder, secureText, checkTextEntry, regex, errorMsg } = config
 
-    const regEx = new RegExp(regex);
-
     const [textInput, setTextInput] = useState('')
     const [showPassword, setShowPassword] = useState(secureText)
     const [error, setError] = useState(false)
 
 
-
-    const checkInput = (e) => {
+    const checkInput = () => {
 
         if(checkTextEntry) {
 
-            let text = e.nativeEvent.text
-
-            regEx.test(text) ? setError(false) : setError(true)
+            regex.test(textInput) ? setError(false) : setError(true)
 
             if(route !== 'Login'){
 
                 const copyContext = {...contextValue}
-                copyContext[keyword] = text
+                copyContext[keyword] = textInput
                 contextValue.setContext(copyContext)
 
                 copyContext.screen === 1 ? validityFormScreenOne(copyContext) ? contextValue.setShowButtonNextRegister(true) : contextValue.setShowButtonNextRegister(false) : null
                 copyContext.screen === 2 ? validityFormScreenTwo(copyContext) ? contextValue.setShowButtonSaveRegister(true) : contextValue.setShowButtonSaveRegister(false) : null
             }
-            
-
         }
     }
 
