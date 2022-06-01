@@ -7,7 +7,6 @@ import Input from '../components/Input'
 
 const RegisterScreen = ({navigation, route}) => {
 
-  console.log("rechargement composant")
   const contextValue = {
       email : "",
       password : "",
