@@ -7,6 +7,7 @@ export default React.createContext({
     firstname : "",
     lastname : "",
     screen : 0,
+    showNextRegister : false,
     setContext : () => setContext,
     setShowNextRegister : () => setShowNextRegister,
     setShowButtonNextRegister : () => setShowButtonNextRegister,

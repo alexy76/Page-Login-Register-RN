@@ -1,6 +1,7 @@
+import React, { useState, useContext } from 'react'
 import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native'
 import RegisterContext from '../contexts/RegisterContext'
-import React, { useState, useContext } from 'react'
+import { validityFormScreenOne, validityFormScreenTwo } from '../tools/VerifyRegister'
 import Icon from 'react-native-vector-icons/FontAwesome'
 
 
@@ -17,33 +18,22 @@ const Input = ({config}) => {
     const [error, setError] = useState(false)
 
 
+
     const checkInput = (e) => {
 
         if(checkTextEntry) {
 
-            if(!regEx.test(e.nativeEvent.text) || e.nativeEvent.text === '') {
-                setError(true)
-            }else {
-                setError(false)
-                const copyContext = {...contextValue}
-                copyContext[keyword] = e.nativeEvent.text
-                contextValue.setContext(copyContext)
-                console.log(copyContext)
+            let text = e.nativeEvent.text
 
-                if(copyContext.screen === 1) {
-                    if(copyContext.email.length > 0 && copyContext.password.length > 0 && copyContext.confirmPassword.length > 0 && copyContext.password === copyContext.confirmPassword) {
-                        contextValue.setShowButtonNextRegister(true)
-                        copyContext.screen = 2
-                        contextValue.setContext(copyContext)
-                    }
-                }
+            regEx.test(text) ? setError(false) : setError(true)
 
-                if(copyContext.screen === 2) {
-                    if(copyContext.firstname.length > 0 && copyContext.lastname.length > 0) {
-                        contextValue.setShowButtonSaveRegister(true)
-                    }
-                }
-            }
+            const copyContext = {...contextValue}
+            copyContext[keyword] = text
+            contextValue.setContext(copyContext)
+
+            copyContext.screen === 1 ? validityFormScreenOne(copyContext) ? contextValue.setShowButtonNextRegister(true) : contextValue.setShowButtonNextRegister(false) : null
+            copyContext.screen === 2 ? validityFormScreenTwo(copyContext) ? contextValue.setShowButtonSaveRegister(true) : contextValue.setShowButtonSaveRegister(false) : null
+
         }
     }
 

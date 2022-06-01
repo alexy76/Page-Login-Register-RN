@@ -27,6 +27,7 @@ const RegisterScreen = ({navigation}) => {
 
     const copyContext = {
       ...context,
+      showNextRegister : showNextRegister,
       setContext : setContext,
       setShowNextRegister : setShowNextRegister,
       setShowButtonNextRegister : setShowButtonNextRegister,
@@ -62,7 +63,13 @@ const RegisterScreen = ({navigation}) => {
 
           <View style={styles.viewButton}>
               <TouchableOpacity 
-                onPress={() => { setShowNextRegister(true); setShowButtonNextRegister(false)}} 
+                onPress={() => { 
+                  setShowNextRegister(true); 
+                  setShowButtonNextRegister(false); 
+                  let copyContext = {...context}
+                  copyContext.screen = 2
+                  setContext(copyContext)
+                }} 
                 style={styles.buttonNext}
               >
                 <Text style={styles.textButtonNext}>SUIVANT</Text>
