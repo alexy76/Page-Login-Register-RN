@@ -21,9 +21,7 @@ const RegisterScreen = ({navigation}) => {
   const [showNextRegister, setShowNextRegister] = useState(false)
   const [showButtonNextRegister, setShowButtonNextRegister] = useState(false)
   const [showButtonSaveRegister, setShowButtonSaveRegister] = useState(false)
-  const [selectedDate, setSelectedDate] = useState('');
 
-  console.log(selectedDate)
 
   useEffect(() => {
 
